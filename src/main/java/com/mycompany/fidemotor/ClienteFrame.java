@@ -239,7 +239,7 @@ public class ClienteFrame extends JFrame{
         frameOpciones.add(panelOpciones);
         frameOpciones.setVisible(true);
 
-        // ActionListener para salir de la sesión
+        
         btnSalirSesion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -248,7 +248,7 @@ public class ClienteFrame extends JFrame{
             }
         });
 
-        // ActionListener para visualizar vehículos
+        
         btnVisualizarVehiculos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -266,11 +266,11 @@ public class ClienteFrame extends JFrame{
             }
         });
 
-        // ActionListener para visualizar compras
+        
         btnVisualizarCompras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para visualizar compras realizadas
+               
                 JOptionPane.showMessageDialog(frameOpciones, "Mostrando compras realizadas");
             }
         });
@@ -323,7 +323,7 @@ public class ClienteFrame extends JFrame{
         btnGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Implementar lógica para guardar los datos editados
+                
                 JOptionPane.showMessageDialog(frameEditarDatos, "Datos guardados correctamente");
                 frameEditarDatos.dispose();
             }

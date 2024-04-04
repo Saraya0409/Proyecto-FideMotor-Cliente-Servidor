@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author yagoa
+
  */
 public class ConexionBD {
     static final String URL = "jdbc:mysql://127.0.0.1:3306/fidemotor?user=root&password=Progra12345@!";
