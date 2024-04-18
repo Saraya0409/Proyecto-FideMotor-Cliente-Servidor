@@ -66,20 +66,7 @@ public class ConexionBD {
             int affectedRows = stmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-    
-    public static boolean editarVehiculo(Vehiculo vehiculo) {
-    String query = "UPDATE vehiculos SET marca = ?, modelo = ?, precio = ? WHERE id = ?";
-    try (Connection conn = DriverManager.getConnection(URL);
-         PreparedStatement stmt = conn.prepareStatement(query)) {
-        
-        stmt.setString(1, vehiculo.getMarca());
-        stmt.setString(2, vehiculo.getModelo());
-        stmt.setDouble(3, vehiculo.getPrecio());
-        // Asume que Vehiculo tiene un campo id con su getter
+    // Asume que Vehiculo tiene un campo id con su getter
 
         int affectedRows = stmt.executeUpdate();
         return affectedRows > 0;
