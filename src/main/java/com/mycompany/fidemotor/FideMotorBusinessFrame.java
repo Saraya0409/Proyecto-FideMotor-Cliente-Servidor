@@ -91,6 +91,59 @@ public class FideMotorBusinessFrame extends JFrame {
         JDialog dialog = new JDialog(this, "Agregar Vehículo", true);
         dialog.setLayout(new GridLayout(4, 2));
 
+private void initComponents() {
+        JPanel panelPrincipal = new JPanel(new GridLayout(3, 1, 10, 10));
+
+        btnGestionarVehiculos = new JButton("Gestionar Vehículos");
+        btnVisualizarCompras = new JButton("Visualizar Compras");
+        btnGestionarEstadosCompras = new JButton("Gestionar Estados de Compras");
+
+        panelPrincipal.add(btnGestionarVehiculos);
+        panelPrincipal.add(btnVisualizarCompras);
+        panelPrincipal.add(btnGestionarEstadosCompras);
+
+        btnGestionarVehiculos.addActionListener(this::abrirVentanaGestionVehiculos);
+        btnVisualizarCompras.addActionListener(this::abrirVentanaVisualizarCompras);
+        btnGestionarEstadosCompras.addActionListener(this::abrirVentanaGestionarEstadosCompras);
+
+        add(panelPrincipal);
+    }
+
+    private void abrirVentanaGestionVehiculos(ActionEvent e) {
+        JFrame frameGestionVehiculos = new JFrame("Gestionar Vehículos");
+        frameGestionVehiculos.setSize(500, 400);
+        frameGestionVehiculos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frameGestionVehiculos.setLayout(new BorderLayout());
+
+        JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JButton btnAgregar = new JButton("Agregar");
+        JButton btnEditar = new JButton("Editar");
+        JButton btnEliminar = new JButton("Eliminar");
+        panelBotones.add(btnAgregar);
+        panelBotones.add(btnEditar);
+        panelBotones.add(btnEliminar);
+
+        String[] columnas = {"ID", "Marca", "Modelo", "Precio"};
+
+        Object[][] datosVehiculos = obtenerDatosVehiculos();
+        JTable tablaVehiculos = new JTable(datosVehiculos, columnas);
+        JScrollPane scrollPane = new JScrollPane(tablaVehiculos);
+
+        frameGestionVehiculos.add(panelBotones, BorderLayout.NORTH);
+        frameGestionVehiculos.add(scrollPane, BorderLayout.CENTER);
+
+        btnAgregar.addActionListener(event -> agregarVehiculo());
+        btnEditar.addActionListener(event -> editarVehiculo());
+        btnEliminar.addActionListener(event -> eliminarVehiculo());
+
+        frameGestionVehiculos.setLocationRelativeTo(null);
+
+    }
+
+    private void agregarVehiculo() {
+        JDialog dialog = new JDialog(this, "Agregar Vehículo", true);
+        dialog.setLayout(new GridLayout(4, 2));
+
         JTextField marcaField = new JTextField();
         JTextField modeloField = new JTextField();
         JTextField precioField = new JTextField();
@@ -172,5 +225,3 @@ public class FideMotorBusinessFrame extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new FideMotorBusinessFrame().setVisible(true));
     }
-
-}
