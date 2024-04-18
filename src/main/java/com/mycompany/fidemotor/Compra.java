@@ -30,6 +30,24 @@ public class Compra {
         this.estado = estado;
     }
 
+public class Compra {
+    private int id;
+    private String clienteId; 
+    private int vehiculoId; 
+    private LocalDate fechaCompra;
+    private double montoTotal;
+    private String estado; 
+
+   
+    public Compra(int id, String clienteId, int vehiculoId, LocalDate fechaCompra, double montoTotal, String estado) {
+        this.id = id;
+        this.clienteId = clienteId;
+        this.vehiculoId = vehiculoId;
+        this.fechaCompra = fechaCompra;
+        this.montoTotal = montoTotal;
+        this.estado = estado;
+    }
+
    
     public int getId() {
         return id;
@@ -73,6 +91,12 @@ public class Compra {
 
     public String getEstado() {
         return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+}
     }
 
     public void setEstado(String estado) {
